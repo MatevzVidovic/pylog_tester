@@ -9,8 +9,8 @@ MY_LOGGER = logging.getLogger("prototip") # or any string. Mind this: same strin
 MY_LOGGER.setLevel(logging.DEBUG)
 
 
-python_logger_path = os.path.join(os.path.dirname(__file__), 'python_logger')
-handlers = py_log.file_handler_setup(MY_LOGGER, python_logger_path, add_stdout_stream=False)
+# python_logger_path = os.path.join(os.path.dirname(__file__), 'python_logger')
+# handlers = py_log.file_handler_setup(MY_LOGGER, python_logger_path, add_stdout_stream=False)
 # def file_handler_setup(logger, path_to_python_logger_folder, add_stdout_stream: bool = False)
 
 
@@ -27,10 +27,12 @@ def foo(a, b, c):
 foo(1, 2, 3)
 
 
-
-@py_log.log(passed_logger=MY_LOGGER)
+@py_log.log_for_class(passed_logger=MY_LOGGER)
 class tester:
+    # @py_log.log(passed_logger=MY_LOGGER)
     def __init__(self):
         print('tester object created')
-    def test(self):
+    
+    # @py_log.log(passed_logger=MY_LOGGER)
+    def test_me(self):
         print('testing method works')
