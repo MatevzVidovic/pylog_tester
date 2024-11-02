@@ -40,7 +40,12 @@ t.test_me()
 @py_log.log(passed_logger=MY_LOGGER)
 def test():
     print('test function works')
+    vrba = "vas domaca"
     t.test_me()
+    py_log.log_locals(MY_LOGGER)
+    py_log.log_stack(MY_LOGGER)
+    py_log.manual_log(MY_LOGGER, "rocni string", vrba, vrbica_moja=vrba)
+    return
 
 test()
 
